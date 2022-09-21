@@ -1,5 +1,12 @@
+
+
+
 export async function fetchPokemon() {
-  const response = await fetch('https://pokedex-alchemy.herokuapp.com/api/pokedex');
-  const data = await response.json();
+  const resp = await fetch(
+    `https://pokedex-alchemy.herokuapp.com/api/pokedex`
+  );
+  const data = await resp.json();
   return data.results;
 }
+
+  
