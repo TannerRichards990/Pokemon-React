@@ -1,29 +1,52 @@
 import { useState, useEffect } from 'react';
-import { fetchPokemon } from '../services/pokemon';
+import { fetchFiltered, fetchTypes } from '../services/pokemon';
 
 export function usePokemon() {
   const [pokemon, setPokemon] = useState([]);
-  const [type, setType] = useState('');
-  const [sort, setSort] = useState('false');
-  const [searchPokemon, setSearchPokemon] = useState('');
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState('');
+  const [types, setTypes] = useState('');
+  const [type, setType] = useState('all');
+  const [query, setQuery] = useState('');
+  const [page, setPage] = useState(1);
+  const [search, setSearch] = useState('');
+  const [loading, setLoading] = useState(true);
+  const [sortOrder, setSortOrder] = useState('asc');
+  const [sortBy, setSortBy] = useState('pokemon');
+
 
   useEffect(() => {
-    const loadData = async () => {
-      try {
-        const data = await fetchPokemon();
-
-        setPokemon(data);
-
-        setLoading(false);
-      }
-      catch (e) {
-        setError(e.message);
-        setLoading(false);
-      }
+    const getTypes = async () => {
+      const allTypes = await fetchTypes();
+      setTypes('all', ...allTypes);
     };
-    loadData();
+    getTypes();
   }, []);
-  return { pokemon };
+
+
+  useEffect(() => {
+    const getFiltered = async () => {
+      const pokemon = await fetchFiltered({ type, query, page, setPage, sortBy, sortOrder });
+      setPokemon(pokemon);
+      setLoading(false);
+    };
+    getFiltered();
+  }, [type, query, page, setPage, sortBy, sortOrder]);
+
+  function handleChange(e) {
+    setSearch(e.target.value);
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    setQuery(search);
+  }
+
+  if (loading) return <h1>Loading...</h1>;
+
 }
+
+
+
+
+
+
+
