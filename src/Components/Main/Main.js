@@ -1,7 +1,7 @@
 import React from 'react';
 import usePokemon from '../../Hooks/usePokemon';
 import Filter from '../Filter/Filter';
-import Pokelist from '../PokeList/Pokemonlist';
+import PokeList from '../Pokelist/Pokelist';
 
 
 export default function Main() {
@@ -10,7 +10,7 @@ export default function Main() {
   return (
     <div className="main">
       <Filter types={types} selectedType={selectedType} setSelectedType={setSelectedType} />
-      <Pokelist pokemon={pokemon} />
+      <pokeList pokeList={pokemon} />
     </div>
   );
 }
