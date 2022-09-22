@@ -1,7 +1,7 @@
 import React from 'react';
 import usePokemon from '../../Hooks/usePokemon';
 import Filter from '../Filter/Filter';
-import Pokelist from '../PokeList/Pokemonlist';
+import PokeList from '../PokeList/PokeList';
 
 
 export default function Main() {
@@ -9,10 +9,11 @@ export default function Main() {
   return (
     <div className="main">
       <Filter types={types} type={type} setType={setType} />
-      <Pokemonlist pokemon={pokemon} />
+      <PokeList pokemonList={pokemon} />
     </div>
   );
 }
+
 
 
 

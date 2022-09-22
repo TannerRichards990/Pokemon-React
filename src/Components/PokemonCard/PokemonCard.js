@@ -1,8 +1,8 @@
 
-
 import React from 'react';
 
 export default function PokemonCard({ pokemon }) {
+  console.log('POKEMON CARD FLAG', pokemon);
   return (
     <div className="pokemon-card">
       <h2>Name: {pokemon.pokemon}</h2>

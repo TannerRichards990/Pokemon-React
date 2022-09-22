@@ -18,7 +18,7 @@ export default function usePokemon() {
     };
     loadData();
   }, []);
-
+  
   useEffect (() => {
     const loadData = async () => {
       try {
@@ -54,12 +54,9 @@ export default function usePokemon() {
   }, []);
 
 
-  const filterPokemonType = () => {
-    if (type === 'all') return pokemon;
-    return pokemon.filter(((poke) => poke.type === type));
-  };
-
-  return { pokemon, setType, types, filterPokemonType };
+ 
+  console.log('HOOKS STATE', pokemon);
+  return { pokemon, setType, types };
 }
 
 
