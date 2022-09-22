@@ -1,7 +1,7 @@
 import React from 'react';
 import usePokemon from '../../Hooks/usePokemon';
 import Filter from '../Filter/Filter';
-import Pokemonlist from '../PokemonList/Pokemonlist';
+import Pokelist from '../PokeList/Pokemonlist';
 
 
 export default function Main() {

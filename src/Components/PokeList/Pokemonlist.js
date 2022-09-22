@@ -1,11 +1,11 @@
 import './Pokemonlist.css';
 import PokemonCard from '../PokemonCard/PokemonCard';
 
-export default function Pokemonlist({ pokemon }) {
+export default function Pokelist({ pokemonList }) {
   return (
     <div className="pokelist">
-      {pokemon.map((pokemon) => (
-        <PokemonCard key={pokemon.id} pokemon={pokemon} />
+      {pokemonList.map((pokemon) => (
+        <PokemonCard key={pokemon.id} {...pokemon} />
       ))}
     </div>
   );
