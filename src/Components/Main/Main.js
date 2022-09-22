@@ -1,15 +1,20 @@
 import React from 'react';
 import usePokemon from '../../Hooks/usePokemon';
-import PokemonCard from '../PokemonCard/PokemonCard';
+import Filter from '../Filter/Filter';
+import Pokemonlist from '../PokemonList/Pokemonlist';
+
 
 export default function Main() {
-  const { pokemon } = usePokemon();
+  const { pokemon, types, selectedType, setSelectedType } = usePokemon();
+  console.log(types);
   return (
     <div className="main">
-      {pokemon.map((pokemon) => (
-        <PokemonCard key={pokemon.id} pokemon={pokemon} />
-      ))}
+      <Filter types={types} selectedType={selectedType} setSelectedType={setSelectedType} />
+      <Pokemonlist pokemon={pokemon} />
     </div>
   );
 }
+
+
+
 
