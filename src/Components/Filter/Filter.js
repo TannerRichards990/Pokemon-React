@@ -1,17 +1,19 @@
+import Select from '@mui/material/Select';
+import MenuItem from '@mui/material/MenuItem';
 import React from 'react';
 
-export default function Filter({ types, selectedType, setSelectedType }) {
+export default function Filter({ types, type, setType }) {
   return (
     <div className="filter">
-      <select value={selectedType} onChange={(e) => 
-        setSelectedType(e.target.value)}>
-        <option value="All">All</option>
+      <Select value={type} onChange={(e) => 
+        setType(e.target.value)}>
+        <MenuItem value="All">All</MenuItem>
         {types.map((type) => (
-          <option key={type} value={type}>
+          <MenuItem key={type} value={type}>
             {type}
-          </option>
+          </MenuItem>
         ))}
-      </select>
+      </Select>
     </div>
   );
 }

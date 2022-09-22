@@ -5,11 +5,10 @@ import Pokemonlist from '../PokemonList/Pokemonlist';
 
 
 export default function Main() {
-  const { pokemon, types, selectedType, setSelectedType } = usePokemon();
-  console.log(types);
+  const { pokemon, types, type, setType, } = usePokemon();
   return (
     <div className="main">
-      <Filter types={types} selectedType={selectedType} setSelectedType={setSelectedType} />
+      <Filter types={types} type={type} setType={setType} />
       <Pokemonlist pokemon={pokemon} />
     </div>
   );
