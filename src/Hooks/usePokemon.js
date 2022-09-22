@@ -18,7 +18,7 @@ export default function usePokemon() {
     };
     loadData();
   }, []);
-
+  
   useEffect (() => {
     const loadData = async () => {
       try {
@@ -53,6 +53,9 @@ export default function usePokemon() {
 
   }, []);
 
+
+ 
+  console.log('HOOKS STATE', pokemon);
   return { pokemon, setType, types };
 }
 
